@@ -1,38 +1,53 @@
 <template>
-    <div class="q-pa-md">
-      <div class="q-gutter-md row items-start">
-        <q-card flat bordered style="width: 100vw">
-          <q-card-section>
-            <div class="text-h6">{{ title ?? "Not Data" }}</div>
-          </q-card-section>
-  
-          <q-separator inset />
-  
-          <q-card-section>
-            {{ subTitle ?? "Not Have Data" }}
-          </q-card-section>
-        </q-card>
-      </div>
+  <div class="q-pa-md" style="width: 100%">
+    <div class="q-gutter-md flex items-start">
+      <q-card
+        flat
+        :bordered="bgColor"
+        style="width: 100%"
+        :class="{ backgroudHeader: bgColor }"
+      >
+        <q-card-section>
+          <div class="text-h6" style="width: fit-content">
+            {{ title ?? "Not Data" }}
+            <q-separator class="separator-color" size="3px" />
+          </div>
+        </q-card-section>
+
+        <q-card-section>
+          {{ subTitle ?? "Not Have Data" }}
+        </q-card-section>
+      </q-card>
     </div>
-  </template>
+  </div>
+</template>
 
 <script setup>
 defineOptions({
-  name: 'IntroductionService'
-})
+  name: "IntroductionService",
+});
 
 const props = defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   subTitle: {
     type: String,
-    required: true
+    required: true,
   },
-  title: {
+  bgColor: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 </script>
+
+<style>
+.backgroudHeader {
+  background-color: #BEF0FE !important;
+}
+.separator-color {
+  background-color: #7ee1ff !important;
+}
+</style>

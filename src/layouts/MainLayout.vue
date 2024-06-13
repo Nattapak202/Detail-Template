@@ -3,29 +3,31 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
-          <div class="row">
-            <img src="../assets/logo.png" class="q-mr-xl" />
-            <q-btn-toggle
-              class="col"
-              v-for="link in linksList"
-              :key="link.title"
-              v-bind="link"
-              v-model="model"
-              flat
-              stretch
-              toggle-color="yellow"
-              :options="[{ label: link.title, value: link.title }]"
-              @click="navigate(link.link)"
-            />
-            <div class="col-2 justify-end items-center"><q-btn outline style="color: red" label="Login" size="22px" class="q-px-xl q-py-sm " /></div>
-            
-              
+          <div class="q-mp-xl row">
+            <div class="flex">
+              <img src="../assets/logo.png" style="height: rem" />
+            </div>
+            <q-separator vertical />
+            <div class="flex" v-for="link in linksList" :key="link.title">
+              <q-separator vertical />
+              <ButtonDropdown :class="{ hidden: link.link !=='/Instructions' }" :options='{serviceMenu}' />
+              <q-btn-toggle
+                :class="{ hidden: link.link =='/Instructions' }"
+                v-bind="link"
+                flat
+                stretch
+                toggle-color="yellow"
+                :options="[{ label: link.title, value: link.title }]"
+                @click="navigate(link.link)"
+              />
+              <q-separator vertical />
+            </div>
           </div>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
     <q-page-container>
-      <router-view />
+      <router-view :key="$route.fullPath" />
     </q-page-container>
   </q-layout>
 </template>
@@ -34,7 +36,8 @@
 import { ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
 import { useRouter } from "vue-router";
-import { Menulist } from "src/variable/variable";
+import { Menulist,serviceMenu } from "src/variable/variable";
+import ButtonDropdown from "../components/ButtonDropdown.vue";
 
 defineOptions({
   name: "MainLayout",
