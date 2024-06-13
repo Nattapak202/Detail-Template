@@ -42,4 +42,31 @@ export const serviceMenu = [
     link: 'https://awesome.quasar.dev'
   }]
 
+  export const Menulist = [
+    {
+      title: 'Home',
+      detail: 'HomePage',
+      icon: 'home',
+      link: '/'
+    },
+    {
+      title: 'Service',
+      detail: 'ServicePage',
+      icon: 'code',
+      link: '/Instructions'
+    },
+    {
+      title: 'Q&A',
+      detail: 'questionAndAnswer',
+      icon: 'chat',
+      link: '/Q&A'
+    },
+    {
+      title: 'CheckStatus',
+      detail: 'checkStatus',
+      icon: 'record_voice_over',
+      link: '/checkStatus'
+    }]
+  
+    
   
