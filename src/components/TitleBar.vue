@@ -1,7 +1,7 @@
 <template>
   <div class="flex row items-center">
-    <div class="green-bar left d-none d-sm-block"></div>
-    <h5 class="q-px-md">{{title}}</h5>
+    <div class="green-bar left d-none d-sm-block col-2"></div>
+    <h5 class="q-px-md">{{ title }}</h5>
     <div class="green-bar col right"></div>
   </div>
 </template>
@@ -19,23 +19,21 @@ const props = defineProps({
 });
 </script>
 <style scoped>
-h5{
-    font-size: clamp(25px,2vw,35px) !important;
-    font-weight: bold;
-    color:#1b2234de;
+h5 {
+  font-size: clamp(25px, 2vw, 35px) !important;
+  font-weight: bold;
+  color: #1b2234de;
 }
-/* Use Quasar's responsive classes */
 .d-none {
   display: none !important;
 }
-
-.d-sm-block {
-  display: block !important;
+.display-block {
+  display: block;
 }
-
-@media (max-width: 1360px) {
+/* Display as block on small screens and larger */
+@media (min-width: 500px) {
   .d-sm-block {
-    display: none !important;
+    display: block !important;
   }
 }
 .green-bar.left {

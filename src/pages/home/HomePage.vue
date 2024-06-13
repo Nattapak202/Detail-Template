@@ -53,7 +53,31 @@
       </div>
     </section>
     <section>
-      <TitleBar title="แนะนำบริการ"/>
+      <TitleBar title="แนะนำบริการ" />
+    </section>
+    <section class="services">
+      <div class="row container-lg q-pb-xl">
+        <ServiceList
+          v-for="(props, index) in fakePropsArray"
+          :key="index"
+          v-bind="props"
+        />
+      </div>
+    </section>
+    <section>
+      <TitleBar title="แนะนำบริการ2" />
+    </section>
+    <section class="services">
+      <div class="row container-lg q-pb-xl">
+        <ServiceList
+          v-for="(props, index) in fakePropsArray"
+          :key="index"
+          v-bind="props"
+        />
+      </div>
+    </section>
+    <section>
+      <TitleBar title="แนะนำบริการ3" />
     </section>
     <section class="services">
       <div class="row container-lg q-pb-xl">
@@ -169,7 +193,7 @@ const handleClick = () => {
 }
 .line {
   display: inline-block;
-  border-bottom: 1px rgb(159, 158, 158,0.3) solid;
+  border-bottom: 1px rgb(159, 158, 158, 0.3) solid;
   width: 35%;
 }
 </style>
