@@ -1,17 +1,16 @@
 // app global css in SCSS form
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-* {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-style: normal;
+@font-face {
+  font-family: kanitFont;
+  src: url(./fonts/Kanit-Regular\ 1.woff);
 }
 body {
+  font-family: 'kanitFont';
   background-color: #fffffe;
 }
 $xs-breakpoint: 718px;
 $sm-breakpoint: 1024px;
 $md-breakpoint: 1439px;
 $lg-breakpoint: 1920px;
-
 .container,
 .container-sm,
 .container-md,

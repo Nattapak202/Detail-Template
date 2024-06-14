@@ -1,7 +1,8 @@
 <template>
   <q-page>
     <section class="top-banners">
-      <div class="top-banners-bg">
+      <div class="top-banners-bg bor">
+        <img src="/src/assets/denmaru.svg" alt="Denmaru" class="denmaru" />
         <div class="container-lg flex column wrap q-px-lg">
           <section class="title">
             <h2 class="title-head">
@@ -52,44 +53,41 @@
         </div>
       </div>
     </section>
-    <section class="services q-pb-md">
-      <TitleBar title="แนะนำบริการ" :typeNumber="true" />
-      <div class="row container-xl padd-service">
+    <section
+      class="services q-pb-md"
+      :class="{ color2: index % 2 !== 0 }"
+      v-for="(category, index) in categoryService"
+      :key="index"
+    >
+      <TitleBar :title="category.service" :typeNumber="index % 2 === 0" />
+      <div
+        class="row container-xl padd-service"
+        v-if="!serViceMenuData[index].nested"
+      >
         <ServiceList
-          v-for="(props, index) in fakePropsArray"
-          :key="index"
+          v-for="(props, indexNoNested) in serViceMenuData[index].serviceDetail"
+          :key="indexNoNested"
           v-bind="props"
         />
       </div>
-    </section>
-    <section class="services color2 q-pb-md">
-      <TitleBar title="แนะนำบริการ2" :typeNumber="false" />
-      <div class="row container-xl padd-service">
-        <ServiceList
-          v-for="(props, index) in fakePropsArray"
-          :key="index"
-          v-bind="props"
-        />
-      </div>
-    </section>
-    <section class="services q-pb-md">
-      <TitleBar title="แนะนำบริการ3" :typeNumber="true" />
-      <div class="row container-xl padd-service">
-        <ServiceList
-          v-for="(props, index) in fakePropsArray"
-          :key="index"
-          v-bind="props"
-        />
-      </div>
-    </section>
-    <section class="services color2 q-pb-md">
-      <TitleBar title="แนะนำบริการ4" :typeNumber="false" />
-      <div class="row container-xl padd-service">
-        <ServiceList
-          v-for="(props, index) in fakePropsArray"
-          :key="index"
-          v-bind="props"
-        />
+      <div v-if="serViceMenuData[index].nested">
+        <div
+          v-for="(propsNested, indexNested) in serViceMenuData[index]
+            .serviceDetail"
+          :key="indexNested"
+        >
+          <div class="row container-xl padd-service text-nested">
+            {{ propsNested.name }}
+          </div>
+          <div class="row container-xl padd-service">
+            <ServiceList
+              v-for="(propsBoxNested, indexBoxNest) in serViceMenuData[index]
+                .serviceDetail[indexNested].serviceNested"
+              :key="indexBoxNest"
+              v-bind="propsBoxNested"
+            />
+          </div>
+        </div>
       </div>
     </section>
   </q-page>
@@ -99,52 +97,11 @@
 import ButtonNoOutline from "src/components/ButtonQuasar.vue";
 import TitleBar from "src/components/TitleBar.vue";
 import ServiceList from "src/components/ServiceList.vue";
+import { categoryService, serViceMenuData } from "src/variable/variable";
 import { ref } from "vue";
 defineOptions({
   name: "HomePage",
 });
-const fakePropsArray = [
-  {
-    icon: "settings",
-    color: "blue",
-    size: "lg",
-    link: "/Q&A",
-    title: "Home",
-    detail: "Welcome to our home page",
-  },
-  {
-    icon: "settings",
-    color: "blue",
-    size: "lg",
-    link: "/Q&A",
-    title: "Home",
-    detail: "Welcome to our home page",
-  },
-  {
-    icon: "settings",
-    color: "red",
-    size: "lg",
-    link: "/Q&A",
-    title: "Profile",
-    detail: "View and edit your profile information",
-  },
-  {
-    icon: "settings",
-    color: "blue",
-    size: "lg",
-    link: "/Q&A",
-    title: "Home",
-    detail: "Welcome to our home page",
-  },
-  {
-    icon: "settings",
-    color: "red",
-    size: "lg",
-    link: "/Q&A",
-    title: "Profile",
-    detail: "View and edit your profile information",
-  },
-];
 const loading = ref(false);
 const handleClick = () => {
   console.log("CLick");
@@ -157,21 +114,39 @@ const handleClick = () => {
     padding-left: calc((100% - 1170px) / 2);
   }
 }
-.color2{
+.color2 {
   background: rgba(191, 191, 191, 0.2);
 }
 .bor {
   border: 1px solid red;
 }
 .top-banners-bg {
-  background-color: #f2fdf2 !important;
+  background-color: rgba(255, 0, 0, 0.2) !important;
   overflow: auto;
 }
+.text-nested {
+  align-items: center;
+  color: grey;
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 600;
+  margin-left: 20px;
+  position: relative;
+}
+.text-nested::before {
+  content: "";
+  background: red;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 2px crimson);
+}
 .title-head {
+  z-index: 99;
   margin-top: 70px;
   box-sizing: border-box;
   text-wrap: wrap;
-  font-size: clamp(25px, 1vw, 35px);
+  font-size: clamp(25px, 3vw, 35px);
   font-weight: 600;
   color: #1b2234de;
   line-height: 1;
@@ -190,7 +165,7 @@ const handleClick = () => {
   min-width: 250px;
 }
 .text {
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(14px, 2vw, 16px);
 }
 &,
 .no-regis {
@@ -208,11 +183,25 @@ const handleClick = () => {
   border-bottom: 1px rgb(159, 158, 158, 0.3) solid;
   width: 35%;
 }
+.denmaru {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  margin-right: 25px;
+  z-index: 0;
+  filter: drop-shadow(0 1rem 10px crimson);
+}
+@media only screen and (max-width: 700px) {
+  .denmaru {
+    display: none;
+  }
+}
 </style>
 <style lang="scss">
 .register {
-  color: $buttonnooutlinecolr;
+  color: #121957;
   text-decoration: none;
+  font-weight: 600;
 }
 .register:hover {
   text-decoration: underline;

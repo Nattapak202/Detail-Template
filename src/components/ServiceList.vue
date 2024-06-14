@@ -6,20 +6,17 @@
   >
     <div class="full-h">
       <q-card
-        class="my-card full-h onhover q-py-sm"
-        style="border: none; box-shadow: none"
+        class="my-card full-h onhover"
       >
-        <q-card-section horizontal class="full-h">
-          <div class="flex flex-center q-px-md" style="border: none">
+        <q-card-section horizontal class="full-h q-py-sm">
+          <div class="flex flex-center q-px-sm" style="border: none">
             <q-card-section>
               <q-icon :name="icon" :color="color" :size="size" />
             </q-card-section>
           </div>
           <q-separator vertical style="background: red" />
           <q-card-section class="full-h full-width">
-            <q-card-section class="textwith titlehead q-pa-none">{{
-              title
-            }}</q-card-section>
+            <q-card-section class="textwith titlehead q-pa-none">{{ title}}</q-card-section>
             <q-card-section class="textwith subtitle q-px-none">{{
               detail
             }}</q-card-section>
@@ -67,14 +64,17 @@ const props = defineProps({
 });
 </script>
 <style scoped>
+.bor{
+  border: 1px solid red !important;
+}
 .q-separator{
   flex-shrink: 1 !important;
 }
-.bor{
-  border:1px solid red;
-}
 .onhover {
   transition: all 0.3s ease;
+}
+.onhover:active{
+  background: rgba(57, 226, 252, 0.1);
 }
 .onhover:hover {
   transform: scale(1.05);
