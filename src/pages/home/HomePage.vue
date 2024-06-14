@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <section class="top-banners">
-      <div class="top-banners-bg bor">
+      <div class="top-banners-bg">
         <img src="/src/assets/denmaru.svg" alt="Denmaru" class="denmaru" />
         <div class="container-lg flex column wrap q-px-lg">
           <section class="title">
@@ -116,9 +116,6 @@ const handleClick = () => {
 }
 .color2 {
   background: rgba(191, 191, 191, 0.2);
-}
-.bor {
-  border: 1px solid red;
 }
 .top-banners-bg {
   background-color: rgba(255, 0, 0, 0.2) !important;

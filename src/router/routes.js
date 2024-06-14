@@ -6,8 +6,9 @@ const routes = [
       // { path: '/home', component: () => import('pages/IndexPage.vue') },
       {
         path: "/Q&A",
-        component: () =>
-          import("pages/questionAndAnswer/QuestionAndAnswerPage.vue"),
+        // component: () =>
+        //   import("pages/questionAndAnswer/QuestionAndAnswerPage.vue"),
+        component: () => import("pages/DevelopPage.vue"),
       },
       {
         path: "/Instructions",
@@ -22,7 +23,8 @@ const routes = [
       { path: "/", component: () => import("pages/home/HomePage.vue") },
       {
         path: "/checkStatus",
-        component: () => import("pages/checkStatus/CheckStatusPage.vue"),
+        // component: () => import("pages/checkStatus/CheckStatusPage.vue"),
+        component: () => import("pages/DevelopPage.vue"),
       },
     ],
   },

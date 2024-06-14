@@ -1,21 +1,20 @@
 <template>
   <div class="q-pa-md" style="width: 100%">
-    <div class="q-gutter-md flex items-start">
+    <div class="q-gutter-md flex items-start container">
       <q-card
         flat
-        :bordered="bgColor"
         style="width: 100%"
         :class="{ backgroudHeader: bgColor }"
       >
         <q-card-section>
-          <div style="width: fit-content">
-            <h5 class="q-mb-sm">{{ title ?? "Not Data" }}</h5>
+          <div :class="{ linebuttonHeader:linebuttom }" >
+            <div class="q-mb-sm title-size-text" :style="{ fontSize: textSize }">{{ title ?? "Not Data" }}</div>
             <q-separator class="separator-color" size="3px" />
           </div>
         </q-card-section>
 
         <q-card-section>
-          {{ subTitle ?? "Not Have Data" }}
+          <div class="subtitleBrackwork">{{ subTitle ?? "Not Have Data" }}</div>
         </q-card-section>
       </q-card>
     </div>
@@ -40,14 +39,28 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  textSize:{
+    type: String,
+    default: "clamp(25px, 1vw, 35px)"
+  },
+  linebuttom:{
+    type: Boolean,
+    default: true
+  }
 });
 </script>
 
 <style>
-.backgroudHeader {
-  background-color: #BEF0FE !important;
-}
 .separator-color {
-  background-color: #7ee1ff !important;
+  background-color: #FF4C4C !important;
+}
+.title-size-text {
+  font-weight: 600;
+}
+.subtitleBrackwork {
+  word-wrap: break-word;
+}
+.linebuttonHeader{
+  width: fit-content;
 }
 </style>
