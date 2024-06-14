@@ -1,5 +1,5 @@
 <template>
-    <q-btn-dropdown color="primary" label="Service">
+    <q-btn-dropdown color="white" text-color="red" label="Service" class="not-absorot">
       <div class="q-pa-md">
       <q-list v-for="(option, index) in serviceMenu" :key="index">
         <q-item  clickable v-close-popup @click="navigate(option?.link)">
@@ -58,3 +58,9 @@ const props = defineProps({
 });
 console.log(serviceMenu)
 </script>
+
+<style>
+.not-absorot::before {
+  position: relative !important;
+}
+</style>

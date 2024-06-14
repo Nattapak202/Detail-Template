@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">{{ head ?? "Header" }}</div>
-  <div class="row justify-center no-wrap">
+  <div class="row justify-center">
     <q-card v-for="(data, index) in datas" :key="index" class="no-shadow col-5 q-ma-md" bordered>
         <q-item>
         <q-item-section avatar>
@@ -8,8 +8,8 @@
             <q-icon :name="data.icon" />
           </q-avatar>
         </q-item-section>
-
-        <q-item-section>
+        <q-separator vertical />
+        <q-item-section class="q-ml-md">
           <q-item-label>{{ data.title }}</q-item-label>
           <q-item-label caption>
             {{ data.detail }}
@@ -30,6 +30,8 @@
 </template>
 
 <script setup>
+
+import ButtonNoOutline from "src/components/ButtonQuasar.vue";
 // import { dataDowload } from "../variable/variable.js";
 
 // export default defineComponent({

@@ -2,7 +2,7 @@ export const serviceMenu = [
   {
     title: "Borrowing Laptop",
     detail: "borrowingLaptop",
-    icon: "Laptop",
+    icon: "laptop",
     link: "/Instructions/borrowingLaptop",
     color: 'green',
     size: 'md',
@@ -10,7 +10,7 @@ export const serviceMenu = [
   {
     title: "BorrowingUsb",
     detail: "borrowingUsb",
-    icon: "Usb",
+    icon: "usb",
     link: "/Instructions/borrowingUsb",
     color: 'green',
     size: 'md',
@@ -18,7 +18,7 @@ export const serviceMenu = [
   {
     title: "BorrowingItEquipment",
     detail: "borrowingItEquipment",
-    icon: "Construction",
+    icon: "construction",
     link: "/Instructions/borrowingItEquipment",
     color: 'red',
     size: 'md',
@@ -26,7 +26,7 @@ export const serviceMenu = [
   {
     title: "BorrowingCamera",
     detail: "borrowingCamera",
-    icon: "Photo Camera",
+    icon: "photo_camera",
     link: "/Instructions/borrowingCamera",
     color: 'red',
     size: 'md',
@@ -34,7 +34,7 @@ export const serviceMenu = [
   {
     title: "SummitForm",
     detail: "summitForm",
-    icon: "List Alt",
+    icon: "list_alt",
     link: "/Instructions/summitForm",
     color: 'blue',
     size: 'md',
@@ -42,7 +42,7 @@ export const serviceMenu = [
   {
     title: "BorrowingUsbVaccine",
     detail: "borrowingUsbVaccine",
-    icon: "Vaccines",
+    icon: "vaccines",
     link: "/Instructions/borrowingUsbVaccine",
     color: 'blue',
     size: 'md',
@@ -90,7 +90,9 @@ export const dataPageService = [
         head: "Download From",
         datas: [
           { title: "PDF", detail: "detail", icon: "home", link: "/" },
-          { title: "WORD", detail: "detail", icon: "warning", link: "/" },
+          { title: "Word", detail: "detail", icon: "warning", link: "/" },
+          { title: "PowerPoint", detail: "detail", icon: "warning", link: "/" },
+          { title: "Excel", detail: "detail", icon: "warning", link: "/" },
         ],
       },
       ButtonLabel: {
@@ -99,7 +101,7 @@ export const dataPageService = [
       },
     },
     borrowingUsb: {
-      needCardDowload: false,
+      needCardDowload: true,
       srcImg: "https://picsum.photos/500/300",
       IntroductionService: {
         title: "Bowrow USB",
@@ -111,6 +113,9 @@ export const dataPageService = [
         datas: [
           { title: "PDF", detail: "detail", icon: "home", link: "/" },
           { title: "WORD", detail: "detail", icon: "warning", link: "/" },
+          { title: "PowerPoint", detail: "detail", icon: "warning", link: "/" },
+          { title: "Excel", detail: "detail", icon: "warning", link: "/" },
+          { title: "Git", detail: "detail", icon: "warning", link: "/" },
         ],
       },
       ButtonLabel: {

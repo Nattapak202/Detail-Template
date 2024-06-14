@@ -8,8 +8,8 @@
         :class="{ backgroudHeader: bgColor }"
       >
         <q-card-section>
-          <div class="text-h6" style="width: fit-content">
-            {{ title ?? "Not Data" }}
+          <div style="width: fit-content">
+            <h5 class="q-mb-sm">{{ title ?? "Not Data" }}</h5>
             <q-separator class="separator-color" size="3px" />
           </div>
         </q-card-section>
