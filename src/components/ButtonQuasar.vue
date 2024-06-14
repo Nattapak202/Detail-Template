@@ -2,8 +2,8 @@
   <q-btn
     :label="label"
     :style="{
-      backgroundColor: outline ? 'white !important' : '#61c161',
-      color: outline ? '#61c161' : 'white',
+      backgroundColor: outline ? 'white !important' : '#61c161 !important',
+      color: outline ? '#61c161 !important' : 'white',
       borderWidth: outline ? '2px' : '0',
       borderStyle: 'solid', 
       width: '100%',

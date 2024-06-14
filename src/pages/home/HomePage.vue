@@ -52,11 +52,9 @@
         </div>
       </div>
     </section>
-    <section>
-      <TitleBar title="แนะนำบริการ" />
-    </section>
-    <section class="services">
-      <div class="row container-lg q-pb-xl">
+    <section class="services q-pb-md">
+      <TitleBar title="แนะนำบริการ" :typeNumber="true" />
+      <div class="row container-xl padd-service">
         <ServiceList
           v-for="(props, index) in fakePropsArray"
           :key="index"
@@ -64,11 +62,9 @@
         />
       </div>
     </section>
-    <section>
-      <TitleBar title="แนะนำบริการ2" />
-    </section>
-    <section class="services">
-      <div class="row container-lg q-pb-xl">
+    <section class="services color2 q-pb-md">
+      <TitleBar title="แนะนำบริการ2" :typeNumber="false" />
+      <div class="row container-xl padd-service">
         <ServiceList
           v-for="(props, index) in fakePropsArray"
           :key="index"
@@ -76,11 +72,19 @@
         />
       </div>
     </section>
-    <section>
-      <TitleBar title="แนะนำบริการ3" />
+    <section class="services q-pb-md">
+      <TitleBar title="แนะนำบริการ3" :typeNumber="true" />
+      <div class="row container-xl padd-service">
+        <ServiceList
+          v-for="(props, index) in fakePropsArray"
+          :key="index"
+          v-bind="props"
+        />
+      </div>
     </section>
-    <section class="services">
-      <div class="row container-lg q-pb-xl">
+    <section class="services color2 q-pb-md">
+      <TitleBar title="แนะนำบริการ4" :typeNumber="false" />
+      <div class="row container-xl padd-service">
         <ServiceList
           v-for="(props, index) in fakePropsArray"
           :key="index"
@@ -148,6 +152,14 @@ const handleClick = () => {
 };
 </script>
 <style scoped>
+@media (min-width: 1200px) {
+  .padd-service {
+    padding-left: calc((100% - 1170px) / 2);
+  }
+}
+.color2{
+  background: rgba(191, 191, 191, 0.2);
+}
 .bor {
   border: 1px solid red;
 }

@@ -2,20 +2,20 @@
   <router-link
     style="text-decoration: none; color: inherit"
     :to="link"
-    class="col-4 col-lg-4 col-md-4 col-sm-12 q-px-md q-pt-md q-pb-xl"
+    class="col-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 q-px-md q-py-md"
   >
     <div class="full-h">
       <q-card
-        class="my-card full-h onhover"
+        class="my-card full-h onhover q-py-sm"
         style="border: none; box-shadow: none"
       >
-        <q-card-section horizontal class="full-h ">
-          <div class="flex flex-center" style="border: none">
+        <q-card-section horizontal class="full-h">
+          <div class="flex flex-center q-px-md" style="border: none">
             <q-card-section>
               <q-icon :name="icon" :color="color" :size="size" />
             </q-card-section>
           </div>
-          <q-separator vertical style="background: #61c161" />
+          <q-separator vertical style="background: red" />
           <q-card-section class="full-h full-width">
             <q-card-section class="textwith titlehead q-pa-none">{{
               title
@@ -60,9 +60,19 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  typeNumber:{
+    type:Boolean,
+    default:true,
+  }
 });
 </script>
 <style scoped>
+.q-separator{
+  flex-shrink: 1 !important;
+}
+.bor{
+  border:1px solid red;
+}
 .onhover {
   transition: all 0.3s ease;
 }

@@ -1,8 +1,10 @@
 <template>
-  <div class="flex row items-center">
-    <div class="green-bar left d-none d-sm-block col-2"></div>
-    <h5 class="q-px-md">{{ title }}</h5>
-    <div class="green-bar col right"></div>
+  <div class="row items-center back">
+    <div class="section d-none d-sm-block" :class="[typeNumber ? 'color1' : 'color2']"></div>
+    <span class="bor"
+      ><h5 class="q-px-md">{{ title }}</h5></span
+    >
+    <div class="bar col right" :class="[typeNumber ? 'color1' : 'color2']"></div>
   </div>
 </template>
 
@@ -16,6 +18,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  typeNumber: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 <style scoped>
@@ -27,25 +33,26 @@ h5 {
 .d-none {
   display: none !important;
 }
-.display-block {
-  display: block;
-}
 /* Display as block on small screens and larger */
-@media (min-width: 500px) {
+@media (min-width: 576px) {
   .d-sm-block {
     display: block !important;
   }
 }
-.green-bar.left {
-  height: 50px !important;
-  background: #dcf7db;
-  border-top-right-radius: 80px 80px;
-  border-bottom-right-radius: 80px 80px;
+.section {
+  border-radius: 0px 30px 30px 0px;
+  height: 50px;
+  width: calc((100% - 1170px) / 2);
 }
-.green-bar.right {
+.bar.right {
   height: 50px !important;
-  background: #dcf7db;
-  border-top-left-radius: 80px 80px;
-  border-bottom-left-radius: 80px 80px;
+  border-radius: 30px 0px 0px 30px;
+  width: calc(1002px + calc((100% - 1170px) / 2));
+}
+.color1 {
+  background: rgb(255, 0, 0,0.7);
+}
+.color2 {
+  background: rgba(255, 255, 255, 1)
 }
 </style>
