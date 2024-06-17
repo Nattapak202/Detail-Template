@@ -1,12 +1,16 @@
 <template>
   <div class="serviceBodyBackgroud q-pb-md">
-    <q-page class="flex column text">
-      <IntroductionService :class="{ backgroudHeader: dataPageServices?.IntroductionService?.bgColor }"
+    <q-spinner class="q-my-md" v-if="isLoading" color="primary" size="2em" />
+    <q-page class="flex column text" v-show="!isLoading">
+      <IntroductionService
+        :class="{
+          backgroudHeader: dataPageServices?.IntroductionService?.bgColor,
+        }"
         :title="dataPageServices?.IntroductionService?.title"
         :subTitle="dataPageServices?.IntroductionService?.subtitle"
         :bgColor="dataPageServices?.IntroductionService?.bgColor"
       />
-      <div class="container-lg flex justify-center items-center">
+      <div class="container-lg flex justify-center items-center q-mt-md">
         <ImageService :srcImg="dataPageServices?.srcImg" />
       </div>
       <IntroductionService
@@ -25,7 +29,10 @@
           :datas="dataPageServices?.DataCardDowload?.datas"
         />
       </div>
-      <div class="flex justify-center items-center q-ma-md" :class="{ hidden: !dataPageServices?.buttonToForm }">
+      <div
+        class="flex justify-center items-center q-ma-md"
+        :class="{ hidden: !dataPageServices?.buttonToForm }"
+      >
         <ButtonNoOutline
           :label="dataPageServices?.ButtonLabel?.label"
           :link="dataPageServices?.ButtonLabel?.link"
@@ -33,29 +40,39 @@
         />
       </div>
       <div>
-        <TableService :row="dataPageServices?.rows" :titleTable="dataPageServices?.titleTable" class="container-lg" />
+        <TableService
+          :row="dataPageServices?.rows"
+          :titleTable="dataPageServices?.titleTable"
+          class="container-lg"
+        />
       </div>
     </q-page>
   </div>
 </template>
 
 <script setup>
+import { watchEffect } from "vue";
 import IntroductionService from "../../components/IntroductionService.vue";
 import ImageService from "../../components/ImageService.vue";
 import CardDowload from "src/components/CardDowload.vue";
 import ButtonNoOutline from "src/components/ButtonQuasar.vue";
 import { dataPageService } from "../../variable/dataService.js";
 import { useRoute } from "vue-router";
-import TableService from "src/components/TableService.vue"
+import TableService from "src/components/TableService.vue";
 
-const route = useRoute();
-
-const dataPageServices = dataPageService[0][route.params.service];
+const router = useRoute();
+var dataPageServices
+var isLoading = false
 defineOptions({
   name: "InstructionPage",
 });
-
-console.log(route.params.service);
+watchEffect(() => {
+  // console.log(router)
+  isLoading = true;
+  dataPageServices = "";
+  dataPageServices = dataPageService[0][router.params.service];
+  isLoading = false;
+})
 </script>
 
 <style>
@@ -75,6 +92,6 @@ console.log(route.params.service);
   height: auto;
 }
 .backgroudHeader {
-  background-color: #FFCCCC !important;
+  background-color: #ffcccc !important;
 }
 </style>

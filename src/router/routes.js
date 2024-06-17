@@ -6,9 +6,9 @@ const routes = [
       // { path: '/home', component: () => import('pages/IndexPage.vue') },
       {
         path: "/Q&A",
-        // component: () =>
-        //   import("pages/questionAndAnswer/QuestionAndAnswerPage.vue"),
-        component: () => import("pages/DevelopPage.vue"),
+        component: () =>
+          import("pages/questionAndAnswer/QuestionAndAnswerPage.vue"),
+        // component: () => import("pages/DevelopPage.vue"),
       },
       {
         path: "/Instructions",

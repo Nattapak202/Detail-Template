@@ -7,7 +7,7 @@
     style="font-weight: 800 !important"
     :options="serviceMenu"
   >
-    <div class="q-pa-md horizontal-dropdown">
+    <div class="q-pa-md horizontal-dropdown setPositionSubmenu">
       <q-list v-for="(option, index) in serviceMenu" :key="index">
         <q-item clickable v-close-popup @click="navigate(option?.link)">
           <q-item-section>
@@ -38,7 +38,7 @@ function navigate(link) {
   display: flex;
   flex-wrap: wrap;
 }
-.q-menu{
+[role=menu]{
   left: 0px !important;
   width: 100vw !important;
   max-width: 100vw !important;

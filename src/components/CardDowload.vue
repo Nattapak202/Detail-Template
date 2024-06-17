@@ -4,7 +4,7 @@
     <q-card
       v-for="(data, index) in datas"
       :key="index"
-      class="no-shadow col-5 q-ma-md textBrackwork col-lg-5 col-md-5 col-sm-11 col-xs-11 q-px-md q-py-md"
+      class="no-shadow col-5 q-ma-md textBrackwork col-lg-5 col-md-5 col-sm-8 col-xs-11 q-px-md q-py-md"
       bordered
     >
       <q-item class="column justify-center" style="height: 100%">
@@ -89,6 +89,6 @@ const props = defineProps({
   font-weight: bold;
 }
 .positionButtonCard::before{
-  position: absolute;
+  border: 0;
 }
 </style>

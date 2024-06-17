@@ -1,14 +1,14 @@
 <template>
-  <q-layout view="lHh Lpr lff">
+  <q-layout view="hHh lpr fff">
     <q-header elevated>
       <q-toolbar class="bg-color-menubar">
         <q-toolbar-title>
           <div class="q-mp-xl row">
-            <div class="flex">
+            <div class="flex col-2 col-lg-2 col-md-2 col-sm-11 col-xs-11">
               <img src="../assets/logo.png" style="height: auto" />
             </div>
             <div
-              class="flex q-mx-xl"
+              class="flex q-mr-md col-1 col-lg-1 col-md-2 col-sm-2 col-xs-11"
               v-for="link in linksList"
               :key="link.title"
             >
@@ -16,12 +16,16 @@
                 :class="{ hidden: link.link !== '/Instructions' }"
                 :options="{ serviceMenu }"
               />
-              <q-btn 
-              :class="{ hidden: link.link == '/Instructions' }" 
-              style="font-weight: 800 !important; position: relative !important;"
-              :label= link?.title
-              :value=link?.title 
-              @click="navigate(link.link)" />
+              <q-btn
+                :class="{ hidden: link.link == '/Instructions' }"
+                style="
+                  font-weight: 800 !important;
+                  position: relative !important;
+                "
+                :label="link?.title"
+                :value="link?.title"
+                @click="navigate(link.link)"
+              />
               <!-- <q-separator vertical /> -->
             </div>
           </div>
@@ -29,7 +33,7 @@
       </q-toolbar>
     </q-header>
     <q-page-container>
-      <router-view :key="$route.fullPath" />
+      <router-view />
     </q-page-container>
 
     <q-footer class="bg-white text-black q-py-md">
@@ -69,7 +73,6 @@
 
 <script setup>
 import { ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
 import { useRouter } from "vue-router";
 import { Menulist, serviceMenu } from "src/variable/variable";
 import ButtonDropdown from "../components/ButtonDropdown.vue";
@@ -110,7 +113,7 @@ function navigate(link) {
 .headerFontSizeheader {
   font-weight: 800 !important;
 }
-.q-btn:before{
+.q-btn:before {
   position: relative;
 }
 </style>
