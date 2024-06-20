@@ -9,7 +9,7 @@
         class="my-card full-h onhover"
       >
         <q-card-section horizontal class="full-h q-py-sm">
-          <div class="flex flex-center q-px-sm" style="border: none">
+          <div class="flex flex-center q-px-xs" style="border: none">
             <q-card-section>
               <q-icon :name="icon" :color="color" :size="size" />
             </q-card-section>
@@ -64,9 +64,6 @@ const props = defineProps({
 });
 </script>
 <style scoped>
-.bor{
-  border: 1px solid red !important;
-}
 .q-separator{
   flex-shrink: 1 !important;
 }
