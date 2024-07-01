@@ -6,7 +6,7 @@
         <div class="container-lg flex column wrap q-px-lg">
           <section class="title">
             <h2 class="title-head">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              IT Services System
             </h2>
           </section>
           <section class="but">
@@ -114,6 +114,11 @@ const handleClick = () => {
     padding-left: calc((100% - 1170px) / 2);
   }
 }
+@media (min-width: 1920px) {
+  .padd-service {
+    padding-left: 0;
+  }
+}
 .color2 {
   background: rgba(191, 191, 191, 0.2);
 }
@@ -126,7 +131,6 @@ const handleClick = () => {
   color: grey;
   font-size: clamp(18px, 2vw, 25px);
   font-weight: 600;
-  margin-left: 20px;
   position: relative;
 }
 .text-nested::before {
