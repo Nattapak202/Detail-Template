@@ -83,10 +83,12 @@ const props = defineProps({
 .textwith.titlehead {
   font-size: clamp(14px, 2vw, 18px);
   font-weight: bold;
+  word-wrap: break-word;
 }
 .textwith.subtitle {
   font-size: clamp(14px, 2vw, 16px);
   font-weight: normal;
+  word-wrap: break-word;
 }
 </style>
 <style lang="scss">
