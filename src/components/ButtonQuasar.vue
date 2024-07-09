@@ -18,8 +18,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
-import { ref } from "vue";
 defineOptions({
   name: "ButtonNoOutline",
 });

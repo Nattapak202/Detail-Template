@@ -46,7 +46,6 @@
 </template>
 
 <script setup>
-import router from "src/router";
 
 defineOptions({
   name: "CardDowload",
